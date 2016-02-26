@@ -91,4 +91,28 @@ public class ArraylistInt
             coleccion[index] = element;
         }
     }
+    
+    /**
+     * Reemplaza el elemento en la posición index con el valor de element. Si el índice no es válido, no hace nada.
+     */
+    public int indexOf(int elemento){
+        int elemento1 = -1;
+        for(int cont = 0; coleccion.length > cont && elemento1 == -1; cont++){
+            if(coleccion[cont] == elemento){
+                elemento1 = elemento;
+            }
+        }
+        return elemento1;
+    }
+    
+    /**
+     * Devuelve true si la lista no contiene elementos.
+     */
+    public boolean isEmpty(){
+        boolean empty = false;
+        if(coleccion.length > 0){
+            empty = true;
+        }
+        return empty;
+    }
 }
