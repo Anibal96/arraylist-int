@@ -49,4 +49,26 @@ public class ArraylistInt
             coleccion = coleccion1;
         }
     }
+    
+    /**
+     * Vacía la colección
+     */
+    public void clear()
+    {
+        int[] coleccion1 = new int[0];
+        coleccion = coleccion1;
+    }
+    
+    /**
+     * Devuelve true si la colección contiene ese elemento, false en cualquier otro caso.
+     */
+    public boolean contains(int elemento){
+        boolean encontrado = false;
+        for(int cont = 0; coleccion.length > cont && !encontrado; cont++){
+            if(coleccion[cont] == elemento){
+                encontrado = true;
+            }
+        }
+        return encontrado;
+    }
 }
