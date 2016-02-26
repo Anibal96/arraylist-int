@@ -115,4 +115,32 @@ public class ArraylistInt
         }
         return empty;
     }
+    
+    /**
+     * Elimina de la colección el elemento que ocupa la posición especificada y devuelve dicho elemento. Si el valor de index no es válido, no hace nada y devuelve -1.
+     */
+    public int remove(int index){
+        int num = -1;
+        int[] coleccion1;
+        if(index <= coleccion.length && index >= 0){
+            coleccion1 = new int[(coleccion.length - 1)];
+            int cont;
+            for (cont = 0; coleccion.length > cont && cont < index; cont++){
+                coleccion1[cont] = coleccion[cont];
+            }
+            for (int cont1 = cont; coleccion.length > cont1; cont1++){
+                coleccion1[cont-1] = coleccion[cont];
+            }
+            num = coleccion[index];
+            coleccion = coleccion1;
+        }
+        return num;
+    }
+    
+    /**
+     * Devuelve el número de elementos de la colección.
+     */
+    public int size(){
+        return coleccion.length;
+    }
 }
