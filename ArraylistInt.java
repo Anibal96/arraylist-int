@@ -36,7 +36,7 @@ public class ArraylistInt
     public void add(int index, int elemento)
     {
         int[] coleccion1;
-        if(index <= coleccion.length){
+        if(index <= coleccion.length && index >= 0){
             coleccion1 = new int[(coleccion.length + 1)];
             int cont;
             for (cont = 0; coleccion.length > cont && cont < index; cont++){
@@ -70,5 +70,25 @@ public class ArraylistInt
             }
         }
         return encontrado;
+    }
+    
+    /**
+     * Devuelve el elemento existente en la posición indicada. Si el valor de index no es válido, entonces devuelve -1
+     */
+    public int get(int index){
+        int elemento = -1;
+        if(index <= coleccion.length && index >= 0){
+            elemento = coleccion[index];
+        }
+        return elemento;
+    }
+    
+    /**
+     * Reemplaza el elemento en la posición index con el valor de element. Si el índice no es válido, no hace nada.
+     */
+    public void set(int index, int element){
+        if(index <= coleccion.length && index >= 0){
+            coleccion[index] = element;
+        }
     }
 }
