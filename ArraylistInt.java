@@ -111,11 +111,7 @@ public class ArraylistInt
      * Devuelve true si la lista no contiene elementos.
      */
     public boolean isEmpty(){
-        boolean empty = true;
-        if(coleccion.length > 0){
-            empty = false;
-        }
-        return empty;
+        return coleccion.length == 0;
     }
     
     /**
