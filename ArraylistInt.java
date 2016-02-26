@@ -38,13 +38,15 @@ public class ArraylistInt
         int[] coleccion1;
         if(index <= coleccion.length && index >= 0){
             coleccion1 = new int[(coleccion.length + 1)];
-            int cont;
-            for (cont = 0; coleccion.length > cont && cont < index; cont++){
+            int cont = 0;
+            while(coleccion.length > cont && cont < index){
                 coleccion1[cont] = coleccion[cont];
+                cont++;
             }
             coleccion1[cont] = elemento;
-            for (int cont1 = cont; coleccion.length > cont1; cont1++){
+            while(coleccion.length > cont){
                 coleccion1[cont+1] = coleccion[cont];
+                cont++;
             }
             coleccion = coleccion1;
         }
@@ -77,7 +79,7 @@ public class ArraylistInt
      */
     public int get(int index){
         int elemento = -1;
-        if(index <= coleccion.length && index >= 0){
+        if(index < coleccion.length && index >= 0){
             elemento = coleccion[index];
         }
         return elemento;
@@ -87,19 +89,19 @@ public class ArraylistInt
      * Reemplaza el elemento en la posición index con el valor de element. Si el índice no es válido, no hace nada.
      */
     public void set(int index, int element){
-        if(index <= coleccion.length && index >= 0){
+        if(index < coleccion.length && index >= 0){
             coleccion[index] = element;
         }
     }
     
     /**
-     * Reemplaza el elemento en la posición index con el valor de element. Si el índice no es válido, no hace nada.
+     * Devuelve el indice en el que aparece la primera ocurrencia del elemento especificado o -1 en caso de que la colección no contenga el elemento especificado.
      */
     public int indexOf(int elemento){
         int elemento1 = -1;
         for(int cont = 0; coleccion.length > cont && elemento1 == -1; cont++){
             if(coleccion[cont] == elemento){
-                elemento1 = elemento;
+                elemento1 = cont;
             }
         }
         return elemento1;
@@ -109,9 +111,9 @@ public class ArraylistInt
      * Devuelve true si la lista no contiene elementos.
      */
     public boolean isEmpty(){
-        boolean empty = false;
+        boolean empty = true;
         if(coleccion.length > 0){
-            empty = true;
+            empty = false;
         }
         return empty;
     }
@@ -122,14 +124,16 @@ public class ArraylistInt
     public int remove(int index){
         int num = -1;
         int[] coleccion1;
-        if(index <= coleccion.length && index >= 0){
+        if(index < coleccion.length && index >= 0){
             coleccion1 = new int[(coleccion.length - 1)];
-            int cont;
-            for (cont = 0; coleccion.length > cont && cont < index; cont++){
+            int cont = 0;
+            while(coleccion.length > cont && cont < index){
                 coleccion1[cont] = coleccion[cont];
+                cont++;
             }
-            for (int cont1 = cont; coleccion.length > cont1; cont1++){
-                coleccion1[cont-1] = coleccion[cont];
+            while(coleccion.length > cont+1){
+                coleccion1[cont] = coleccion[cont+1];
+                cont++;
             }
             num = coleccion[index];
             coleccion = coleccion1;
