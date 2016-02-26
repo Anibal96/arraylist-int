@@ -29,15 +29,14 @@ public class ArraylistInt
         coleccion1[coleccion.length] = elemento;
         coleccion = coleccion1;
     }
-    
+
     /**
      * Añade un elemento a la colección en la posición especificada por el parámetro
      */
     public void add(int index, int elemento)
     {
-        int[] coleccion1;
         if(index <= coleccion.length && index >= 0){
-            coleccion1 = new int[(coleccion.length + 1)];
+            int[]coleccion1 = new int[(coleccion.length + 1)];
             int cont = 0;
             while(coleccion.length > cont && cont < index){
                 coleccion1[cont] = coleccion[cont];
@@ -51,16 +50,15 @@ public class ArraylistInt
             coleccion = coleccion1;
         }
     }
-    
+
     /**
      * Vacía la colección
      */
     public void clear()
     {
-        int[] coleccion1 = new int[0];
-        coleccion = coleccion1;
+        coleccion = new int[0];;
     }
-    
+
     /**
      * Devuelve true si la colección contiene ese elemento, false en cualquier otro caso.
      */
@@ -73,7 +71,7 @@ public class ArraylistInt
         }
         return encontrado;
     }
-    
+
     /**
      * Devuelve el elemento existente en la posición indicada. Si el valor de index no es válido, entonces devuelve -1
      */
@@ -84,7 +82,7 @@ public class ArraylistInt
         }
         return elemento;
     }
-    
+
     /**
      * Reemplaza el elemento en la posición index con el valor de element. Si el índice no es válido, no hace nada.
      */
@@ -93,7 +91,7 @@ public class ArraylistInt
             coleccion[index] = element;
         }
     }
-    
+
     /**
      * Devuelve el indice en el que aparece la primera ocurrencia del elemento especificado o -1 en caso de que la colección no contenga el elemento especificado.
      */
@@ -106,14 +104,14 @@ public class ArraylistInt
         }
         return elemento1;
     }
-    
+
     /**
      * Devuelve true si la lista no contiene elementos.
      */
     public boolean isEmpty(){
         return coleccion.length == 0;
     }
-    
+
     /**
      * Elimina de la colección el elemento que ocupa la posición especificada y devuelve dicho elemento. Si el valor de index no es válido, no hace nada y devuelve -1.
      */
@@ -136,7 +134,7 @@ public class ArraylistInt
         }
         return num;
     }
-    
+
     /**
      * Devuelve el número de elementos de la colección.
      */
